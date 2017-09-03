@@ -1,0 +1,165 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:43</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<ol>
+<li><p>nodeJS 是什么？
+是一个基于 Chrome V8 引擎的 JavaScript 运行环境；</p>
+<p>javaScript 包括：三部分</p>
+<pre><code>            1. ECMAscript-----规定语法规范{
+                例如：var 、 function 、if
+            }
+            2. DOM-----document
+            3. BOM-----window
+</code></pre><p> node中，没有页面，没有样式（和HTML、css无关）</p>
+</li>
+</ol>
+<ol>
+<li>使用： <pre><code>   1. 直接新建的文件 后缀为js
+   2. 接着可以直接写 js 代码
+   3. 书写后的代码，是通过控制台----cmd 命令行来执行的
+   4. 在当前新建的 js 文件的 文件夹里面打开 控制台（cmd),快捷键是 Windows键+R（字母键），这样就打开控制台
+   5. 在 cmd 命令行输入 node 文件名 ，就可以，控制台会执行你的当前目录下的 js 文件里面的代码
+   6. 补充快捷方式：命令行输入node 后 文件名可以直接打头的第一个字，然后按 tab 键，会自动补全文件名称
+</code></pre></li>
+</ol>
+<ol>
+<li>读取文件：<pre><code>     关键字：
+             reuqire：是一个函数，可以在任何NodeJS脚本文件中使用；
+             作用：就是用来加载模块的（加载解析执行JavaScript脚本文件）；
+             注意：加载自定义模块时一定要加上“./”，否则加载不出来；
+             每个模块都会提供一个接口对象 module.exports；
+             通过require加载可以得到模块返回的module.exports对象（相当于每个 requite 里面最后都有这么一句：reutrn module.exports）；
+</code></pre></li>
+</ol>
+<pre><code>        语法： var fs = require(&#39;fs&#39;)
+
+                wirteFile  第一个参数是文件名称、第二个参数是回调函数
+                                       回调函数：第一个参数是浏览器请求服务器的数据
+                                                第二个参数是服务器成功响应浏览器的请求数据
+               fs.wirteFile(&#39;文件名称&#39;,function(err,data){ 
+
+                                   toString() 是由于window在解析的时候是16进制解析的
+                    console.log(data.toString())
+               });
+
+               wirteFile：三个参数的时候，第二个参数会把第一个参数内容覆盖，如果是当前文件没有的文件，
+                          就会自动新建一个文件还有内容； 
+</code></pre><ol>
+<li>构造 http 服务：<pre><code>           1. 引入一个核心模块： http
+           2. 创建一个服务器和创建一个服务：var server = http.createServer()
+           3. 通过服务器响应一些数据给浏览器：response.write(&#39;&lt;h1&gt;this is the server&lt;/h1&gt;&#39;)
+           4. 每一次请求过来以后服务器必须告诉浏览器，当前请求已经完成：response.end()
+           5. 绑定ip地址和端口：listen有三个参数：
+                                                 第一个参数：端口号
+                                                 第二个参数：ip地址（可以省略），默认是本机：127.0.0.1
+                                                 第三个参数：服务器开启成功后的回调函数
+           6. 创建一个响应服务后，cmd 命令行已经响应 ‘服务已开启’，那么想在执行命令 按 Ctrl + 两次 C键 就可以了
+</code></pre></li>
+</ol>
+<pre><code>              例子：一个响应服务
+                    var http = require(&#39;http&#39;);
+                    var server = http.createServer();
+                                    // 回调函数里面的参数：自定义
+                                    //      第一个参数：浏览器发送给服务器请求的数据
+                                    //      第二个参数：服务器发送给浏览器的请求数据
+                    server.on(&#39;request&#39;,function(request,response){
+                        // writeHead 两个参数：第一个为状态码，  第二个参数为类型
+                        response.writeHead(200,{
+                            &#39;Content-Type&#39;:&#39;text/html;charset=utf-8&#39;
+                        });
+                            //响应数据
+                        response.write(&#39;&lt;h3&gt;hello&lt;/h3&gt;&#39;);
+                        response.write(&#39;&lt;p&gt;请求内容显示&lt;/p&gt;&#39;);
+                        //结束本次请求
+                        response.end();
+                    });
+                    // 监听端口 127.0.0.1:1000
+                    server.listen(1000,function(){
+                        console.log(&#39;服务开启成功&#39;);
+                    });
+</code></pre>
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
